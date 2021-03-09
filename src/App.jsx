@@ -1,10 +1,26 @@
 import React from 'react';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
+import axios from 'axios';
+import {useEffect,useState} from 'react';
 import './index.css';
 import Table from './Table';
 
 const App = () =>{
+    const [details,setData] = useState([]);
+
+    useEffect(()=>{
+        axios
+            .get(`https://api.covid19india.org/data.json`)
+            .then(res=>{
+                setData(res.data.statewise[0]);
+            })
+            .catch(err=>{
+                console.log(err);
+            })
+        
+    },[]);
+    
+    
     return(<>
         <section className ="main">
             <div className = 'container'>
@@ -18,7 +34,7 @@ const App = () =>{
                             <div className="card">
                                 <h5 className="card-header text-center">Total Cases</h5>
                                 <div className="card-body">
-                                    <p className="card-text text-center">12345678</p>
+                                    <p className="card-text text-center">{details.confirmed}</p>
                                 </div>
                             </div>
                             </div>
@@ -26,7 +42,7 @@ const App = () =>{
                             <div className="card">
                                 <h5 className="card-header text-center">Recovered</h5>
                                 <div className="card-body">
-                                    <p className="card-text text-center">1234567890</p>
+                                    <p className="card-text text-center">{details.recovered}</p>
                                 </div>
                             </div>
                             </div>
@@ -34,7 +50,7 @@ const App = () =>{
                             <div className="card">
                                 <h5 className="card-header text-center">Deaths</h5>
                                 <div className="card-body">
-                                    <p className="card-text text-center">0987654321</p>
+                                    <p className="card-text text-center">{details.deaths}</p>
                                 </div>
                             </div>
                             </div>
@@ -43,7 +59,7 @@ const App = () =>{
                             <h2>Details</h2>
                         </div>
                         </div>
-                        <div className ="col-12">
+                        <div className ="col-12 table-bottom">
                         <div className ="row scroll">
                             
                             <Table/>
