@@ -40,6 +40,9 @@ h2{
 .table-bottom{
   margin-bottom: 140px;
 }
+p{
+  color:white;
+}
 
 
 @media (max-width:991px){

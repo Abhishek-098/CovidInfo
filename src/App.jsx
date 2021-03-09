@@ -66,9 +66,14 @@ const App = () =>{
                         </div>
 
                         </div>
+
                     
                 </div>
+                
             </div>
+            <div className ='row bg-dark justify-content-center'>
+                    <p>© Copyright 2021, Created by Abhishek Chauhan</p>
+                </div>
         </section>
 
     </>);
