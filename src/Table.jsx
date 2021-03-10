@@ -36,7 +36,7 @@ const Table =()=>{
     // console.log(details.statewise);
     return(<>
         <table className="table ">
-            <thead className="table-dark">
+            <thead className="table foot">
                 <tr>
                     <td className ="text-center">State</td>
                     <td className ="text-center">Total Cases</td>

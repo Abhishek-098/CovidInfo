@@ -4,6 +4,20 @@ import axios from 'axios';
 import {useEffect,useState} from 'react';
 import './index.css';
 import Table from './Table';
+import prec from './Prec';
+import Cards from './Cards';
+
+const newp = prec.map((values,ind)=>{
+    return(
+        <Cards
+            key={ind}
+            image = {values.image}
+            title = {values.title}
+            text ={values.text}
+
+            />
+    );
+});
 
 const App = () =>{
     const [details,setData] = useState([]);
@@ -69,11 +83,16 @@ const App = () =>{
 
                     
                 </div>
+                <div className = 'row my-4 justify-content-center'>
+                    {newp}
+                </div>
+
+                <div className ='row foot justify-content-center'>
+                    <p className ="copyr">© Copyright 2021, Created by Abhishek Chauhan</p>
+                </div>
                 
             </div>
-            <div className ='row bg-dark justify-content-center'>
-                    <p>© Copyright 2021, Created by Abhishek Chauhan</p>
-                </div>
+            
         </section>
 
     </>);
