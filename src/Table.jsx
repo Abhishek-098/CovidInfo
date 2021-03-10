@@ -22,7 +22,8 @@ const Table =()=>{
     const narr = details.map((values)=>{
 
         return(<>
-            <tr>    
+                    
+            <tr>   
                     <td className ="text-center">{values.state}</td>
                     <td className ="text-center">{values.confirmed}</td>
                     <td className ="text-center">{values.active}</td>
